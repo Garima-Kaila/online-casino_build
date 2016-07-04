@@ -3,17 +3,16 @@ app:
   links:
     - mongodb
   volumes:
-    - environment/logs:/var/log
+    - /environment/logs:/var/log
   ports:
     - "8080:8080"
   environment:
     - MONGODB_URI=mongodb://mongodb:27017/gameplatformserver
 
 mongodb:
-  image: dockerfile/mongodb
+  image: mongo
   volumes:
-    - environment/data/mongodb:/data/db
+    - /environment/data/mongodb:/data/db
   ports:
     - "27017:27017"
   command: mongod --smallfiles
-  
