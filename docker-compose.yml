@@ -16,3 +16,4 @@ mongodb:
   ports:
     - "27017:27017"
   command: mongod --smallfiles
+  
