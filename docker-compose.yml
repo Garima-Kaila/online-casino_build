@@ -4,7 +4,7 @@ app:
     - mongodb
     - ges
   volumes:
-    - ./environment/GPSlogs:/var/log
+    - /environment/GPSlogs:/var/log
   ports:
     - "8080:8080"
   environment:
@@ -13,14 +13,14 @@ app:
 ges:
   image: ishaanpuniani/gameexecutionserver
   volumes:
-    - ./environment/GESlogs:/var/log
+    - /environment/GESlogs:/var/log
   ports:
     - "81:8080"
 
 mongodb:
   image: mongo
   volumes:
-    - ./environment/data/mongodb:/data/db
+    - /environment/data/mongodb:/data/db
   ports:
     - "27017:27017"
   command: mongod --smallfiles
